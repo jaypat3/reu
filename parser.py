@@ -792,21 +792,28 @@ for u, v in graph.edges():
         interesting_part = graph.edges[u, v]['label'].split('*')
         new_edge = ''
         flag = ''
+        putin = 0
         if 'U' in interesting_part[0]:
             new_edge = new_edge + interesting_part[0]
             flag = '*'
-        if interesting_part[-1] == 's1':
-            new_edge = new_edge + flag + 'p3'
-        if interesting_part[-1] == 's2':
-            new_edge = new_edge + flag + 'p2'
-        if interesting_part[-1] == 's3':
-            new_edge = new_edge + flag + 'p1'
-        if interesting_part[-1] == 's12':
-            new_edge = new_edge + flag + 'p3p2'
-        if interesting_part[-1] == 's23':
-            new_edge = new_edge + flag + 'p2p1'
-        if interesting_part[-1] == 's123':
-            new_edge = new_edge + flag + 'p3p2p1'
+            putin = 1
+        partition = interesting_part[-1].split('s')
+        for i in range(1,len(partition)):
+            if putin == 1:
+                new_edge = new_edge + flag
+                putin = 0
+            if partition[i] == '1':
+                new_edge = new_edge + 'p3'
+            if partition[i] == '2':
+                new_edge = new_edge + 'p2'
+            if partition[i] == '3':
+                new_edge = new_edge + 'p1'
+            if partition[i] == '12':
+                new_edge = new_edge + 'p3p2'
+            if partition[i] == '23':
+                new_edge = new_edge + 'p2p1'
+            if partition[i] == '123':
+                new_edge = new_edge + 'p3p2p1'
         graph.edges[u, v]['label'] = new_edge
         # edge = graph.edges[u, v]['label']
         print(f"{new_edge}: {u}->{v}")
@@ -856,9 +863,7 @@ for u, v in graph.edges():
 # n0 -> u1 -> ... -> us <- x0 through D3, D23,...,D23,D1
 
 #SET THIS FLAG TO 1 WHEN DOING IT
-arr = ['p3','p2p3','p2p3','p1','p2']
-direction = ['f','f','f','b','b']
-p2p1flag = 0
+
 
 arr = ['p2','p1p2p3','p2p3','p2p3','p2']
 direction = ['f','f','f','f','f']
@@ -866,8 +871,12 @@ direction = ['f','f','f','f','f']
 arr = ['p2','p1p2']
 direction = ['f','f']
 
-arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2']
-direction = ['f', 'f', 'f', 'f']
+arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
+direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+
+arr = ['p3','p2p3','p2p3','p1','p2']
+direction = ['f','f','f','b','b']
+p2p1flag = 1
 
 def last_iter(potential_summand,arr,direction,index):
     search_list = []

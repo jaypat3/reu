@@ -29,41 +29,6 @@ def find_algebra_element(decomp,index):
             return 's123*'
 
 
-str1 = """d(g1:((1, 3)),((1, 3))) = 0
-d(g2:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g30:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g17:((0, 2)),((0, 2))+[1->2]**[0->3]**g26:((0, 2)),((1, 3))+[1->2]**[0->3]**g19:((0, 2)),((1, 3))
-d(g3:((1, 3)),((0, 2))) = [1->3]**[(0, 2)]**g20:((1, 3)),((0, 2))+[1->2]**[0->1]**g19:((0, 2)),((1, 3))
-d(g4:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g13:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g11:((1, 3)),((0, 2))+[0->3]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[0->3]**g9:((1, 3)),((1, 3))
-d(g5:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g14:((0, 2)),((1, 3))
-d(g6:((1, 3)),((1, 3))) = 0
-d(g7:((1, 3)),((1, 3))) = [(1, 3)]**[1->3]**g16:((1, 3)),((1, 3))+[1->2]**[(1, 3)]**g23:((0, 2)),((1, 3))
-d(g8:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g21:((1, 3)),((1, 3))+[(1, 3)]**[0->1]**g9:((1, 3)),((1, 3))+[1->3]**[0->1]**g1:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g6:((1, 3)),((1, 3))
-d(g9:((1, 3)),((1, 3))) = 0
-d(g10:((1, 3)),((1, 3))) = 0
-d(g11:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g7:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g24:((0, 2)),((0, 2))+[1->2]**[0->3]**g18:((0, 2)),((1, 3))
-d(g12:((1, 3)),((1, 3))) = 0
-d(g13:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g17:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g7:((1, 3)),((1, 3))+[0->3]**[1->2]**g8:((1, 3)),((0, 2))
-d(g14:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g6:((1, 3)),((1, 3))
-d(g15:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g34:((1, 3)),((0, 2))
-d(g16:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g20:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g19:((0, 2)),((1, 3))
-d(g17:((0, 2)),((0, 2))) = [2->3]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[2->3]**g21:((1, 3)),((1, 3))+[2->3]**[0->3]**g5:((1, 3)),((1, 3))+[0->3]**[0->3]**g6:((1, 3)),((1, 3))
-d(g18:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g9:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g27:((1, 3)),((1, 3))+[0->1]**[1->3]**g6:((1, 3)),((1, 3))
-d(g19:((0, 2)),((1, 3))) = [0->3]**[(1, 3)]**g6:((1, 3)),((1, 3))+[2->3]**[1->3]**g6:((1, 3)),((1, 3))+[0->1]**[1->3]**g22:((1, 3)),((1, 3))+[2->3]**[1->3]**g10:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g10:((1, 3)),((1, 3))
-d(g20:((1, 3)),((0, 2))) = [1->3]**[2->3]**g6:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g6:((1, 3)),((1, 3))+[1->3]**[2->3]**g10:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g10:((1, 3)),((1, 3))+[1->3]**[0->1]**g1:((1, 3)),((1, 3))
-d(g21:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g32:((1, 3)),((0, 2))
-d(g22:((1, 3)),((1, 3))) = 0
-d(g23:((0, 2)),((1, 3))) = [(0, 2)]**[1->3]**g19:((0, 2)),((1, 3))+[0->2]**[(1, 3)]**g19:((0, 2)),((1, 3))
-d(g24:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g23:((0, 2)),((1, 3))+[0->1]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[0->3]**g1:((1, 3)),((1, 3))+[2->3]**[0->3]**g27:((1, 3)),((1, 3))
-d(g25:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g1:((1, 3)),((1, 3))
-d(g26:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g12:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g5:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g6:((1, 3)),((1, 3))+[0->1]**[1->3]**g22:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g10:((1, 3)),((1, 3))
-d(g27:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g25:((0, 2)),((1, 3))
-d(g28:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g3:((1, 3)),((0, 2))+[0->3]**[2->3]**g15:((1, 3)),((1, 3))+[0->3]**[0->3]**g22:((1, 3)),((1, 3))
-d(g29:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g15:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g22:((1, 3)),((1, 3))+[(1, 3)]**[0->1]**g12:((1, 3)),((1, 3))+[1->3]**[0->1]**g10:((1, 3)),((1, 3))
-d(g30:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g3:((1, 3)),((0, 2))+[1->3]**[(1, 3)]**g16:((1, 3)),((1, 3))
-d(g31:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g33:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g2:((1, 3)),((0, 2))+[0->3]**[0->3]**g12:((1, 3)),((1, 3))
-d(g32:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g10:((1, 3)),((1, 3))
-d(g33:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g28:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g30:((1, 3)),((1, 3))+[0->3]**[1->2]**g29:((1, 3)),((0, 2))
-d(g34:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g22:((1, 3)),((1, 3))"""
-
 str1 = """d(g1:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g2:((1, 3)),((1, 3))
 d(g2:((1, 3)),((1, 3))) = 0
 d(g3:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g40:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g35:((1, 3)),((1, 3))+[0->3]**[1->2]**g6:((1, 3)),((0, 2))
@@ -104,6 +69,41 @@ d(g37:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g23:((1, 3)),((0, 2))+[(0, 2)]**[2-
 d(g38:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g30:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g17:((0, 2)),((1, 3))
 d(g39:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g32:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g11:((1, 3)),((1, 3))+[0->1]**[1->3]**g19:((1, 3)),((1, 3))
 d(g40:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g33:((1, 3)),((0, 2))+[0->3]**[2->3]**g34:((1, 3)),((1, 3))+[0->3]**[0->3]**g2:((1, 3)),((1, 3))"""
+
+str1 = """d(g1:((1, 3)),((1, 3))) = 0
+d(g2:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g30:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g17:((0, 2)),((0, 2))+[1->2]**[0->3]**g26:((0, 2)),((1, 3))+[1->2]**[0->3]**g19:((0, 2)),((1, 3))
+d(g3:((1, 3)),((0, 2))) = [1->3]**[(0, 2)]**g20:((1, 3)),((0, 2))+[1->2]**[0->1]**g19:((0, 2)),((1, 3))
+d(g4:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g13:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g11:((1, 3)),((0, 2))+[0->3]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[0->3]**g9:((1, 3)),((1, 3))
+d(g5:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g14:((0, 2)),((1, 3))
+d(g6:((1, 3)),((1, 3))) = 0
+d(g7:((1, 3)),((1, 3))) = [(1, 3)]**[1->3]**g16:((1, 3)),((1, 3))+[1->2]**[(1, 3)]**g23:((0, 2)),((1, 3))
+d(g8:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g21:((1, 3)),((1, 3))+[(1, 3)]**[0->1]**g9:((1, 3)),((1, 3))+[1->3]**[0->1]**g1:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g6:((1, 3)),((1, 3))
+d(g9:((1, 3)),((1, 3))) = 0
+d(g10:((1, 3)),((1, 3))) = 0
+d(g11:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g7:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g24:((0, 2)),((0, 2))+[1->2]**[0->3]**g18:((0, 2)),((1, 3))
+d(g12:((1, 3)),((1, 3))) = 0
+d(g13:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g17:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g7:((1, 3)),((1, 3))+[0->3]**[1->2]**g8:((1, 3)),((0, 2))
+d(g14:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g6:((1, 3)),((1, 3))
+d(g15:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g34:((1, 3)),((0, 2))
+d(g16:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g20:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g19:((0, 2)),((1, 3))
+d(g17:((0, 2)),((0, 2))) = [2->3]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[2->3]**g21:((1, 3)),((1, 3))+[2->3]**[0->3]**g5:((1, 3)),((1, 3))+[0->3]**[0->3]**g6:((1, 3)),((1, 3))
+d(g18:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g9:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g27:((1, 3)),((1, 3))+[0->1]**[1->3]**g6:((1, 3)),((1, 3))
+d(g19:((0, 2)),((1, 3))) = [0->3]**[(1, 3)]**g6:((1, 3)),((1, 3))+[2->3]**[1->3]**g6:((1, 3)),((1, 3))+[0->1]**[1->3]**g22:((1, 3)),((1, 3))+[2->3]**[1->3]**g10:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g10:((1, 3)),((1, 3))
+d(g20:((1, 3)),((0, 2))) = [1->3]**[2->3]**g6:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g6:((1, 3)),((1, 3))+[1->3]**[2->3]**g10:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g10:((1, 3)),((1, 3))+[1->3]**[0->1]**g1:((1, 3)),((1, 3))
+d(g21:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g32:((1, 3)),((0, 2))
+d(g22:((1, 3)),((1, 3))) = 0
+d(g23:((0, 2)),((1, 3))) = [(0, 2)]**[1->3]**g19:((0, 2)),((1, 3))+[0->2]**[(1, 3)]**g19:((0, 2)),((1, 3))
+d(g24:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g23:((0, 2)),((1, 3))+[0->1]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[0->3]**g1:((1, 3)),((1, 3))+[2->3]**[0->3]**g27:((1, 3)),((1, 3))
+d(g25:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g1:((1, 3)),((1, 3))
+d(g26:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g12:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g5:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g6:((1, 3)),((1, 3))+[0->1]**[1->3]**g22:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g10:((1, 3)),((1, 3))
+d(g27:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g25:((0, 2)),((1, 3))
+d(g28:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g3:((1, 3)),((0, 2))+[0->3]**[2->3]**g15:((1, 3)),((1, 3))+[0->3]**[0->3]**g22:((1, 3)),((1, 3))
+d(g29:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g15:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g22:((1, 3)),((1, 3))+[(1, 3)]**[0->1]**g12:((1, 3)),((1, 3))+[1->3]**[0->1]**g10:((1, 3)),((1, 3))
+d(g30:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g3:((1, 3)),((0, 2))+[1->3]**[(1, 3)]**g16:((1, 3)),((1, 3))
+d(g31:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g33:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g2:((1, 3)),((0, 2))+[0->3]**[0->3]**g12:((1, 3)),((1, 3))
+d(g32:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g10:((1, 3)),((1, 3))
+d(g33:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g28:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g30:((1, 3)),((1, 3))+[0->3]**[1->2]**g29:((1, 3)),((0, 2))
+d(g34:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g22:((1, 3)),((1, 3))"""
 
 li = str1.splitlines()
 
@@ -670,7 +670,7 @@ def draw_graph(graph):
 
 # draw_graph(graph)
 
-
+"""
 #UNKNOT:
 summand_separator = []
 summand_relations = []
@@ -691,8 +691,8 @@ print(i1p_i0s)
 print(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
-
 """
+
 #(2,1) CABLE:
 summand_separator = []
 summand_relations = []
@@ -728,7 +728,7 @@ print(i1p_i1s)
 input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
-"""
+
 """
 #(2,-1) CABLE:
 summand_separator = []
@@ -782,8 +782,8 @@ input_str = input_str + str(i1p_i1s)
 print(input_str)
 
 # graph = create_graph_from_string_2neg1(input_str)
-# graph = create_graph_from_string_21(input_str)
-graph = create_graph_from_string_0(input_str)
+graph = create_graph_from_string_21(input_str)
+# graph = create_graph_from_string_0(input_str)
 
 # print("input_str:\n",input_str)
 
@@ -855,118 +855,19 @@ for u, v in graph.edges():
 
 # n0 -> u1 -> ... -> us <- x0 through D3, D23,...,D23,D1
 
-arr = ['p2','p1p2']
-direction = ['f','f']
-
+#SET THIS FLAG TO 1 WHEN DOING IT
+arr = ['p3','p2p3','p2p3','p1','p2']
+direction = ['f','f','f','b','b']
+p2p1flag = 0
 
 arr = ['p2','p1p2p3','p2p3','p2p3','p2']
 direction = ['f','f','f','f','f']
 
-arr = ['p3','p2p3','p2p3','p1','p2']
-direction = ['f','f','f','b','b']
+arr = ['p2','p1p2']
+direction = ['f','f']
 
-def helper_summand(potential_summand,v,arr,direction,index):
-    # print("index", index)
-    if index == len(arr):
-        print(potential_summand)
-        return
-
-    final_list = []
-    for item in potential_summand:
-        split_item = item.split(' ')
-        if split_item[-1] == index-1:
-            final_list.append(split_item[-2])
-    final_list = list(set(final_list))
-    # print(final_list)
-    
-    for value in final_list:
-        for node in graph.__getitem__(value):
-            edge = graph.edges[v, node]['label']
-            allrelations = edge.split('+')
-            for relation in allrelations:
-                edge_split_forward = relation.split('*')
-                # print(edge_split_forward)
-                relation = relation + ' ' + v + ' ' + node
-                if (len(edge_split_forward) == 1 and 'U' in edge_split_forward[0] and relation + ' ' + str(index) not in potential_summand):
-                    toappend = relation + ' ' + str(index)
-                    potential_summand.append(toappend)
-                    # print("appending 1", relation)
-                if (direction[index] == 'f' and edge_split_forward[-1] == arr[index] and relation + ' ' + str(index) not in potential_summand):
-                    toappend = relation + ' ' + str(index)
-                    potential_summand.append(toappend)
-                    # print("appending 2", relation)
-
-        # print(graph.in_edges)
-
-        for item in graph.in_edges(value):
-            new_node = item[0]
-            # print(new_node, v)
-            if new_node == v:
-                continue
-            edge = graph.edges[new_node, v]['label']
-            # print(edge)
-            allrelations = edge.split('+')
-            for relation in allrelations:
-                edge_split_backward = relation.split('*')
-                # print(edge_split_backward)
-                relation = relation + ' ' + new_node + ' ' + v
-                if (len(edge_split_backward) == 1 and 'U' in edge_split_backward[0] and relation + ' ' + str(index) not in potential_summand):
-                    toappend = relation + ' ' + str(index)
-                    potential_summand.append(toappend)   
-                    # print("appending 3", relation)
-                if (direction[index] == 'b' and edge_split_backward[-1] == arr[index] and relation + ' ' + str(index) not in potential_summand):
-                    toappend = relation + ' ' + str(index)
-                    potential_summand.append(toappend)
-                    # print("appending 4", relation)
-
-    for node in graph.__getitem__(v):
-        edge = graph.edges[v, node]['label']
-        allrelations = edge.split('+')
-        for relation in allrelations:
-            edge_split_forward = relation.split('*')
-            # print(edge_split_forward)
-            relation = relation + ' ' + v + ' ' + node
-            if (len(edge_split_forward) == 1 and 'U' in edge_split_forward[0] and relation + ' ' + str(index) not in potential_summand):
-                toappend = relation + ' ' + str(index)
-                potential_summand.append(toappend)
-                # print("appending 1", relation)
-                helper_summand(potential_summand,node,arr,direction,index)
-                potential_summand.remove(toappend)
-            if (direction[index] == 'f' and edge_split_forward[-1] == arr[index] and relation + ' ' + str(index) not in potential_summand):
-                toappend = relation + ' ' + str(index)
-                potential_summand.append(toappend)
-                # print("appending 2", relation)
-                helper_summand(potential_summand,node,arr,direction,index+1)
-                potential_summand.remove(toappend)
-
-    # print(graph.in_edges)
-
-    for item in graph.in_edges(v):
-        new_node = item[0]
-        # print(new_node, v)
-        if new_node == v:
-            continue
-        edge = graph.edges[new_node, v]['label']
-        # print(edge)
-        allrelations = edge.split('+')
-        for relation in allrelations:
-            edge_split_backward = relation.split('*')
-            # print(edge_split_backward)
-            relation = relation + ' ' + new_node + ' ' + v
-            if (len(edge_split_backward) == 1 and 'U' in edge_split_backward[0] and relation + ' ' + str(index) not in potential_summand):
-                toappend = relation + ' ' + str(index)
-                potential_summand.append(toappend)   
-                # print("appending 3", relation)
-                helper_summand(potential_summand,new_node,arr,direction,index)
-                potential_summand.remove(toappend)
-            if (direction[index] == 'b' and edge_split_backward[-1] == arr[index] and relation + ' ' + str(index) not in potential_summand):
-                toappend = relation + ' ' + str(index)
-                potential_summand.append(toappend)
-                # print("appending 4", relation)
-                helper_summand(potential_summand,new_node,arr,direction,index+1)
-                potential_summand.remove(toappend)
-
-    # print(curr_index)
+arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2']
+direction = ['f', 'f', 'f', 'f']
 
 def last_iter(potential_summand,arr,direction,index):
     search_list = []
@@ -990,7 +891,7 @@ def last_iter(potential_summand,arr,direction,index):
             neighbor = neighbor[1]
             edge = graph.edges[item,neighbor]['label']
             allrelations = edge.split('+')
-            print(allrelations, item, neighbor)
+            # print(allrelations, item, neighbor)
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(item) + ' ' + str(neighbor) + ' ' + str(index)
@@ -1003,7 +904,7 @@ def last_iter(potential_summand,arr,direction,index):
             allrelations = edge.split('+')
             for relation in allrelations:
                 edge_split = relation.split('*')
-                toappend = relation + ' ' + str(item) + ' ' + str(neighbor) + ' ' + str(index)
+                toappend = relation + ' ' + str(neighbor) + ' ' + str(item) + ' ' + str(index)
                 if len(edge_split) == 1 and 'U' in edge_split[0] and toappend not in potential_summand:
                     potential_summand.append(toappend)
     return potential_summand
@@ -1072,16 +973,46 @@ def summand_helper(potential_summand,arr,direction,index):
             allrelations = edge.split('+')
             for relation in allrelations:
                 edge_split = relation.split('*')
-                toappend = relation + ' ' + str(item) + ' ' + str(neighbor) + ' ' + str(index)
+                toappend = relation + ' ' + str(neighbor) + ' ' + str(item) + ' ' + str(index)
                 if len(edge_split) == 1 and 'U' in edge_split[0] and toappend not in potential_summand:
                     potential_summand.append(toappend)
     return potential_summand
 
+def p2p1check(potential_summand,arr):
+    
+    start_index = arr.index('p2')
+    end_index = arr.index('p1')
 
+    left_index = []
+    for item in potential_summand:
+        slice = item.split(' ')
+        index = slice[-1]
+        relations = slice[0].split('+')
+        for relation in relations:
+            if int(index) == start_index and 'p1' not in relation:
+                left_index.append(slice[-3])
+                left_index.append(slice[-2])
 
-for v in graph.in_edges('b10'):
-    print(v[0])
-    print(v[1])
+    right_index = []
+    for item in potential_summand:
+        slice = item.split(' ')
+        index = slice[-1]
+        if int(index) == end_index:
+            right_index.append(slice[-3])
+            right_index.append(slice[-2])
+
+    left_index = list(set(left_index))
+    right_index = list(set(right_index))
+    import itertools
+    for u,v in itertools.product(left_index,right_index):
+        if graph.has_edge(u,v):
+            breakdown = graph.edges[u,v]['label'].split('+')
+            for relation in breakdown:
+                tensor_break = relation.split('*')
+                if (len(tensor_break) == 1 and 'p2p1' == tensor_break[0]) or (len(tensor_break) == 2 and 'p2p1' == tensor_break[1]):
+                    potential_summand.append(relation + ' ' + u + ' ' + v + ' ' + str(len(arr)))
+    return potential_summand
+
 
 print("SUMMAND MAKING")
 for u in graph.nodes:
@@ -1109,7 +1040,26 @@ for u in graph.nodes:
             if edge_split[-1] == arr[index]:
                 potential_summand = []
                 potential_summand.append(relation + ' ' + str(index))
+                for neighbor in graph.edges(u):
+                    # print(neighbor)
+                    neighbor = neighbor[1]
+                    edge = graph.edges[u,neighbor]['label']
+                    allrelations = edge.split('+')
+                    for relation in allrelations:
+                        edge_split = relation.split('*')
+                        if len(edge_split) == 1 and 'U' in edge_split[0]:
+                            potential_summand.append(relation + ' ' + str(u) + ' ' + str(neighbor) + ' ' + str(index))
+                
+                for neighbor in graph.in_edges(u):
+                    neighbor = neighbor[0]
+                    edge = graph.edges[neighbor,u]['label']
+                    allrelations = edge.split('+')
+                    for relation in allrelations:
+                        edge_split = relation.split('*')
+                        if len(edge_split) == 1 and 'U' in edge_split[0]:
+                            potential_summand.append(relation + ' ' + str(neighbor) + ' ' + str(u) + ' ' + str(index))
                 for neighbor in graph.edges(v):
+                    # print(neighbor)
                     neighbor = neighbor[1]
                     edge = graph.edges[v,neighbor]['label']
                     allrelations = edge.split('+')
@@ -1129,10 +1079,10 @@ for u in graph.nodes:
                 for i in range(1,len(arr)):
                     # print("potential_summand:", potential_summand)
                     potential_summand = summand_helper(potential_summand,arr,direction,i)
-                potential_summand = last_iter(potential_summand,arr,direction,len(arr))
+                potential_summand = last_iter(potential_summand,arr,direction,len(arr)-1)
+                if p2p1flag == 1:
+                    potential_summand = p2p1check(potential_summand,arr)
                 print("final potential:", potential_summand)
-    
-    
 
 
 print("GRADING MAKING")

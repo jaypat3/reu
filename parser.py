@@ -64,6 +64,47 @@ d(g32:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g10:((1, 3)),((1, 3))
 d(g33:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g28:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g30:((1, 3)),((1, 3))+[0->3]**[1->2]**g29:((1, 3)),((0, 2))
 d(g34:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g22:((1, 3)),((1, 3))"""
 
+str1 = """d(g1:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g2:((1, 3)),((1, 3))
+d(g2:((1, 3)),((1, 3))) = 0
+d(g3:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g40:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g35:((1, 3)),((1, 3))+[0->3]**[1->2]**g6:((1, 3)),((0, 2))
+d(g4:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g28:((1, 3)),((0, 2))+[(0, 2)]**[2->3]**g3:((0, 2)),((1, 3))+[0->3]**[0->3]**g36:((1, 3)),((1, 3))
+d(g5:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g24:((1, 3)),((0, 2))+[0->3]**[0->1]**g19:((1, 3)),((1, 3))+[0->1]**[2->3]**g34:((1, 3)),((1, 3))
+d(g6:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g36:((1, 3)),((1, 3))+[(1, 3)]**[2->3]**g34:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g2:((1, 3)),((1, 3))
+d(g7:((0, 2)),((0, 2))) = [0->1]**[2->3]**g19:((1, 3)),((1, 3))+[0->1]**[2->3]**g29:((1, 3)),((1, 3))+[0->3]**[0->3]**g29:((1, 3)),((1, 3))+[2->3]**[0->1]**g29:((1, 3)),((1, 3))+[0->2]**[2->3]**g12:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g30:((1, 3)),((0, 2))
+d(g8:((0, 2)),((0, 2))) = [0->3]**[0->2]**g15:((1, 3)),((0, 2))+[0->1]**[0->3]**g29:((1, 3)),((1, 3))+[0->3]**[0->1]**g25:((1, 3)),((1, 3))
+d(g9:((0, 2)),((0, 2))) = [2->3]**[0->1]**g29:((1, 3)),((1, 3))+[0->3]**[0->3]**g29:((1, 3)),((1, 3))+[(0, 2)]**[2->3]**g10:((0, 2)),((1, 3))+[0->3]**[0->3]**g19:((1, 3)),((1, 3))
+d(g10:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g14:((0, 2)),((0, 2))+[0->2]**[1->2]**g9:((0, 2)),((0, 2))
+d(g11:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g26:((0, 2)),((1, 3))
+d(g12:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g21:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g38:((1, 3)),((1, 3))
+d(g13:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g24:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g20:((0, 2)),((1, 3))
+d(g14:((0, 2)),((0, 2))) = [0->1]**[0->3]**g2:((1, 3)),((1, 3))+[0->3]**[0->1]**g19:((1, 3)),((1, 3))+[0->2]**[2->3]**g10:((0, 2)),((1, 3))
+d(g15:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g38:((1, 3)),((1, 3))+[1->3]**[0->3]**g38:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g18:((0, 2)),((0, 2))+[1->2]**[0->3]**g39:((0, 2)),((1, 3))
+d(g16:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g20:((0, 2)),((1, 3))+[0->3]**[0->1]**g25:((1, 3)),((1, 3))+[2->3]**[0->1]**g11:((1, 3)),((1, 3))
+d(g17:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g8:((0, 2)),((0, 2))
+d(g18:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g17:((0, 2)),((1, 3))+[0->3]**[0->3]**g25:((1, 3)),((1, 3))+[2->3]**[0->3]**g11:((1, 3)),((1, 3))
+d(g19:((1, 3)),((1, 3))) = 0
+d(g20:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g22:((0, 2)),((0, 2))
+d(g21:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g30:((1, 3)),((0, 2))+[0->1]**[0->3]**g36:((1, 3)),((1, 3))+[0->3]**[0->1]**g32:((1, 3)),((1, 3))
+d(g22:((0, 2)),((0, 2))) = [0->1]**[0->1]**g19:((1, 3)),((1, 3))
+d(g23:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g13:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g16:((0, 2)),((0, 2))+[1->2]**[0->1]**g39:((0, 2)),((1, 3))
+d(g24:((1, 3)),((0, 2))) = [1->2]**[(0, 2)]**g22:((0, 2)),((0, 2))
+d(g25:((1, 3)),((1, 3))) = 0
+d(g26:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g25:((1, 3)),((1, 3))
+d(g27:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g15:((1, 3)),((0, 2))+[(0, 2)]**[2->3]**g12:((0, 2)),((1, 3))+[0->3]**[0->3]**g32:((1, 3)),((1, 3))
+d(g28:((1, 3)),((0, 2))) = [1->2]**[(0, 2)]**g21:((0, 2)),((0, 2))+[1->2]**[(0, 2)]**g7:((0, 2)),((0, 2))+[1->2]**[(0, 2)]**g9:((0, 2)),((0, 2))+[(1, 3)]**[2->3]**g35:((1, 3)),((1, 3))
+d(g29:((1, 3)),((1, 3))) = [1->2]**[1->2]**g7:((0, 2)),((0, 2))+[1->3]**[(1, 3)]**g38:((1, 3)),((1, 3))
+d(g30:((1, 3)),((0, 2))) = [1->2]**[(0, 2)]**g8:((0, 2)),((0, 2))+[1->2]**[0->2]**g7:((0, 2)),((0, 2))+[1->3]**[0->1]**g38:((1, 3)),((1, 3))
+d(g31:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g5:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g13:((1, 3)),((1, 3))+[0->1]**[1->2]**g6:((1, 3)),((0, 2))
+d(g32:((1, 3)),((1, 3))) = 0
+d(g33:((1, 3)),((0, 2))) = [1->2]**[(0, 2)]**g14:((0, 2)),((0, 2))
+d(g34:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g1:((1, 3)),((0, 2))
+d(g35:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g33:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g10:((0, 2)),((1, 3))
+d(g36:((1, 3)),((1, 3))) = 0
+d(g37:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g23:((1, 3)),((0, 2))+[(0, 2)]**[2->3]**g31:((0, 2)),((1, 3))+[0->3]**[0->3]**g19:((1, 3)),((1, 3))+[0->3]**[0->1]**g32:((1, 3)),((1, 3))
+d(g38:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g30:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g17:((0, 2)),((1, 3))
+d(g39:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g32:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g11:((1, 3)),((1, 3))+[0->1]**[1->3]**g19:((1, 3)),((1, 3))
+d(g40:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g33:((1, 3)),((0, 2))+[0->3]**[2->3]**g34:((1, 3)),((1, 3))+[0->3]**[0->3]**g2:((1, 3)),((1, 3))"""
+
 li = str1.splitlines()
 
 multi_list = []
@@ -320,8 +361,8 @@ def create_graph_from_string_21(input_string):
 
     # Split the input string into sections
     sections = re.split(r'\n(?=[a-z])', input_string.strip())
-    # print(len(sections))
-   
+    print(len(sections))
+    
     # Section 1: Nodes ax and az with arrow labeled as sy
     section_1 = sections[0].split('\n')
     for line in section_1:
@@ -335,14 +376,14 @@ def create_graph_from_string_21(input_string):
                     w = int(w)
                     if w == 0:
                         graph.add_edge(f'a{x}', f'a{z}', label=f'{y}')
-                        # print('Edge added:', f'a{x}, a{z}, label={y}')
+                        print('Edge added:', f'a{x}, a{z}, label={y}')
                     else:
                         graph.add_edge(f'b{x}', f'b{z}', label=f'{y}')
                         graph.add_edge(f'c{x}', f'c{z}', label=f'{y}')
                         graph.add_edge(f'b{x}', f'c{z}', label=f'U^1*{y}')
-                        # print('Edge added:', f'b{x}, b{z}, label={y}')
-                        # print('Edge added:', f'c{x}, c{z}, label={y}')
-                        # print('Edge added:', f'b{x}, c{z}, label=U^1*{y}')
+                        print('Edge added:', f'b{x}, b{z}, label={y}')
+                        print('Edge added:', f'c{x}, c{z}, label={y}')
+                        print('Edge added:', f'b{x}, c{z}, label=U^1*{y}')
 
     # Section 2: Nodes ax and az with arrow labeled as "U^{2i+2}*y"
     section_2 = sections[1].split('\n')
@@ -364,7 +405,7 @@ def create_graph_from_string_21(input_string):
                             s_concatenated = ''.join([el[1:-1] for el in s_elements])
                             label = f'U^{2*i+2}*{s_concatenated}'
                     graph.add_edge(f'a{x}', f'a{z}', label=label)
-                    # print('Edge added:', f'a{x}, a{z}, label={label}')
+                    print('Edge added:', f'a{x}, a{z}, label={label}')
 
     # Section 3: Nodes ax and bz with arrow labeled as "U^{2i+1}*y"
     section_3 = sections[2].split('\n')
@@ -386,7 +427,7 @@ def create_graph_from_string_21(input_string):
                             s_concatenated = ''.join([el[1:-1] for el in s_elements])
                             label = f'U^{2*i+1}*{s_concatenated}'
                     graph.add_edge(f'a{x}', f'b{z}', label=label)
-                    # print('Edge added:', f'a{x}, b{z}, label={label}')
+                    print('Edge added:', f'a{x}, b{z}, label={label}')
 
     # Section 4: Nodes ax and cz with arrow labeled as y
     section_4 = sections[3].split('\n')
@@ -403,7 +444,25 @@ def create_graph_from_string_21(input_string):
                         s_elements = [el for el in elements if el[1:-1].startswith('s')]
                         label = ''.join([el[1:-1] for el in s_elements])
                     graph.add_edge(f'a{x}', f'c{z}', label=label)
-                    # print('Edge added:', f'a{x}, c{z}, label={label}')
+                    print('Edge added:', f'a{x}, c{z}, label={label}')
+                    
+    # Section 5: Idempotents
+    section_5 = sections[4].split('\n')
+    line1 = section_5[-2]
+    line2 = section_5[-1]
+    line_elements1 = line1[1:-1].split(', ')
+    line_elements2 = line2[1:-1].split(', ')
+    label = f'U'
+    for el in line_elements1:
+        if el[1:-1].startswith('g'):
+            x = el[2:-1]
+            graph.add_edge(f'b{x}', f'c{x}', label=label)
+            print('Edge added:', f'b{x}, c{x}, label={label}')
+    for el in line_elements2:
+        if el[1:-1].startswith('g'):
+            x = el[2:-1]
+            graph.add_edge(f'b{x}', f'c{x}', label=label)
+            print('Edge added:', f'b{x}, c{x}, label={label}')
     return graph
 
 
@@ -415,7 +474,7 @@ def create_graph_from_string_2neg1(input_string):
     # Split the input string into sections
     sections = re.split(r'\n(?=[a-z])', input_string.strip())
     print(len(sections))
-   
+    
     # Section 1: NOT M RELATIONS
     section_1 = sections[0].split('\n')
     for line in section_1:
@@ -437,12 +496,12 @@ def create_graph_from_string_2neg1(input_string):
                         graph.add_edge(f'e{x}', f'e{z}', label=f'{y}')
                         graph.add_edge(f'b{x}', f'c{z}', label=f'U^1*{y}')
                         graph.add_edge(f'd{x}', f'e{z}', label=f'U^1*{y}')
-                        # print('Edge added:', f'b{x}, b{z}, label={y}')
-                        # print('Edge added:', f'c{x}, c{z}, label={y}')
-                        # print('Edge added:', f'd{x}, d{z}, label={y}')
-                        # print('Edge added:', f'e{x}, e{z}, label={y}')
-                        # print('Edge added:', f'b{x}, c{z}, label=U^1*{y}')
-                        # print('Edge added:', f'd{x}, e{z}, label=U^1*{y}')
+                        print('Edge added:', f'b{x}, b{z}, label={y}')
+                        print('Edge added:', f'c{x}, c{z}, label={y}')
+                        print('Edge added:', f'd{x}, d{z}, label={y}')
+                        print('Edge added:', f'e{x}, e{z}, label={y}')
+                        print('Edge added:', f'b{x}, c{z}, label=U^1*{y}')
+                        print('Edge added:', f'd{x}, e{z}, label=U^1*{y}')
 
     # Section 2: p3, p23 rep, p2: a -> U^{2i+2}*a
     section_2 = sections[1].split('\n')
@@ -464,7 +523,7 @@ def create_graph_from_string_2neg1(input_string):
                             s_concatenated = ''.join([el[1:-1] for el in s_elements])
                             label = f'U^{2*i+2}*{s_concatenated}'
                         graph.add_edge(f'a{x}', f'a{z}', label=label)
-                    # print('Edge added:', f'a{x}, a{z}, label={label}')
+                    print('Edge added:', f'a{x}, a{z}, label={label}')
 
     # Section 3: p3, p23 rep, p2, p1: a -> U^{2i+1}*b
     section_3 = sections[2].split('\n')
@@ -486,7 +545,7 @@ def create_graph_from_string_2neg1(input_string):
                             s_concatenated = ''.join([el[1:-1] for el in s_elements])
                             label = f'U^{2*i+1}*{s_concatenated}'
                         graph.add_edge(f'a{x}', f'b{z}', label=label)
-                    # print('Edge added:', f'a{x}, b{z}, label={label}')
+                    print('Edge added:', f'a{x}, b{z}, label={label}')
 
     # Section 4: p3, p23 rep, p2, p12: a -> U^{2i+1}*d
     section_4 = sections[3].split('\n')
@@ -508,8 +567,8 @@ def create_graph_from_string_2neg1(input_string):
                             s_concatenated = ''.join([el[1:-1] for el in s_elements])
                             label = f'U^{2*i+1}*{s_concatenated}'
                         graph.add_edge(f'a{x}', f'd{z}', label=label)
-                    # print('Edge added:', f'a{x}, d{z}, label={label}')
-                   
+                    print('Edge added:', f'a{x}, d{z}, label={label}')
+                    
     # Section 5: p1: a -> c
     section_5 = sections[4].split('\n')
     for line in section_5:
@@ -525,8 +584,8 @@ def create_graph_from_string_2neg1(input_string):
                         s_elements = [el for el in elements if el[1:-1].startswith('s')]
                         label = ''.join([el[1:-1] for el in s_elements])
                         graph.add_edge(f'a{x}', f'c{z}', label=label)
-                    # print('Edge added:', f'a{x}, c{z}, label={label}')
-                   
+                    print('Edge added:', f'a{x}, c{z}, label={label}')
+                    
     # Section 6: p12: a -> e
     section_6 = sections[5].split('\n')
     for line in section_6:
@@ -542,8 +601,8 @@ def create_graph_from_string_2neg1(input_string):
                         s_elements = [el for el in elements if el[1:-1].startswith('s')]
                         label = ''.join([el[1:-1] for el in s_elements])
                         graph.add_edge(f'a{x}', f'e{z}', label=label)
-                    # print('Edge added:', f'a{x}, e{z}, label={label}')
-             
+                    print('Edge added:', f'a{x}, e{z}, label={label}')
+              
     # Section 7: p2: b,c -> d,e
     section_7 = sections[6].split('\n')
     for line in section_7:
@@ -558,14 +617,33 @@ def create_graph_from_string_2neg1(input_string):
                     if w == 1:
                         s_elements = [el for el in elements if el[1:-1].startswith('s')]
                         label = ''.join([el[1:-1] for el in s_elements])
-
-
                         graph.add_edge(f'b{x}', f'c{z}', label=label)
                         graph.add_edge(f'd{x}', f'e{z}', label=label)
 
-                    # print('Edge added:', f'b{x}, c{z}, label={label}')
-                    # print('Edge added:', f'd{x}, e{z}, label={label}')
-                   
+                    print('Edge added:', f'b{x}, c{z}, label={label}')
+                    print('Edge added:', f'd{x}, e{z}, label={label}')
+                    
+    # Section 8: Idempotents
+    section_8 = sections[7].split('\n')
+    line1 = section_8[-2]
+    line2 = section_8[-1]
+    line_elements1 = line1[1:-1].split(', ')
+    line_elements2 = line2[1:-1].split(', ')
+    label = f'U'
+    for el in line_elements1:
+        if el[1:-1].startswith('g'):
+            x = el[2:-1]
+            graph.add_edge(f'b{x}', f'c{x}', label=label)
+            graph.add_edge(f'd{x}', f'e{x}', label=label)
+            print('Edge added:', f'b{x}, c{x}, label={label}')
+            print('Edge added:', f'd{x}, e{x}, label={label}')
+    for el in line_elements2:
+        if el[1:-1].startswith('g'):
+            x = el[2:-1]
+            graph.add_edge(f'b{x}', f'c{x}', label=label)
+            graph.add_edge(f'd{x}', f'e{x}', label=label)
+            print('Edge added:', f'b{x}, c{x}, label={label}')
+            print('Edge added:', f'd{x}, e{x}, label={label}')             
     return graph
 
 def draw_graph(graph):
@@ -629,18 +707,25 @@ print("p3, p23 rep, p2: a -> U^{2i+2}*a")
 input_str = input_str + "p3, p23 rep, p2: a -> U^{2i+2}*a\n"
 callerfunc(multi_list,['p3*','p23*','p2*'],[0,1,0]) #U^(2i+2)*a
 print("p3, p23 rep, p2, p1: a -> U^{2i+1}*b")
-input_str = input_str + "p3, p23 rep, p2, p1: a -> U^{2i+1}*b"
+input_str = input_str + "p3, p23 rep, p2, p1: a -> U^{2i+1}*b\n"
 callerfunc(multi_list,['p3*','p23*','p2*','p1*'],[0,1,0,0]) #U^(2i+1)*b
 print("p1: a -> c")
-input_str = input_str + "p1: a -> c"
+input_str = input_str + "p1: a -> c\n"
 callerfunc(multi_list,['p1*'],[0]) #c
 print("note that m(b) = U*c for nomrelations")
+input_str = input_str + "note that m(b) = U*c for nomrelations\n"
 print("IDEMPOTENT RHO_0: ")
+input_str = input_str + "IDEMPOTENT RHO_0: \n"
 print(i0p_i0s)
+input_str = input_str + str(i0p_i0s) + "\n"
 print(i0p_i1s)
+input_str = input_str + str(i0p_i1s) + "\n"
 print("IDEMPOTENT RHO_1:")
+input_str = input_str + "IDEMPOTENT RHO_1: \n"
 print(i1p_i0s)
+input_str = input_str + str(i1p_i0s) + "\n"
 print(i1p_i1s)
+input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
 """
@@ -658,35 +743,43 @@ input_str = "(2,-1) CABLE:\nNOT M RELATIONS\n"
 print("NOT M RELATIONS")
 nomrelations(multi_list)
 print("p3, p23 rep, p2: a -> U^{2i+2}*a")
-input_str = input_str + "p3, p23 rep, p2: a -> U^{2i+2}*a"
+input_str = input_str + "p3, p23 rep, p2: a -> U^{2i+2}*a\n"
 callerfunc(multi_list,['p3*','p23*','p2*'],[0,1,0]) #U^(2i+2)*a
 print("p3, p23 rep, p2, p1: a -> U^{2i+1}*b")
-input_str = input_str + "p3, p23 rep, p2, p1: a -> U^{2i+1}*b"
+input_str = input_str + "p3, p23 rep, p2, p1: a -> U^{2i+1}*b\n"
 callerfunc(multi_list,['p3*','p23*','p2*','p1*'],[0,1,0,0]) #U^(2i+1)*b
 print("p3, p23 rep, p2, p12: a -> U^{2i+1}*d")
-input_str = input_str + "p3, p23 rep, p2, p12: a -> U^{2i+1}*d"
+input_str = input_str + "p3, p23 rep, p2, p12: a -> U^{2i+1}*d\n"
 callerfunc(multi_list,['p3*','p23*','p2*','p12*'],[0,1,0,0]) #U^(2i+1)*d
 print("p1: a -> c")
-input_str = input_str + "p1: a -> c"
+input_str = input_str + "p1: a -> c\n"
 callerfunc(multi_list,['p1*'],[0]) #c,e
 print("p12: a -> e")
-input_str = input_str + "p12: a -> e"
+input_str = input_str + "p12: a -> e\n"
 callerfunc(multi_list,['p12*'],[0]) #e
 print("p2: b,c -> d,e")
-input_str = input_str + "p2: b,c -> d,e"
+input_str = input_str + "p2: b,c -> d,e\n"
 callerfunc(multi_list,['p2*'],[0]) #d,e
-print("note that m(b) = U*c, m(d) = U*e for nomrelations")
+print("note that m(b) = U*c, m(d) = U*e for nomrelations\n")
 print("IDEMPOTENT RHO_0: ")
+input_str = input_str + "IDEMPOTENT RHO_0: \n"
 print(i0p_i0s)
+input_str = input_str + str(i0p_i0s) + "\n"
 print(i0p_i1s)
+input_str = input_str + str(i0p_i1s) + "\n"
 print("IDEMPOTENT RHO_1:")
+input_str = input_str + "IDEMPOTENT RHO_1: \n"
 print(i1p_i0s)
+input_str = input_str + str(i1p_i0s) + "\n"
 print(i1p_i1s)
+input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
 """
 
 # input_string = input_str
+
+print(input_str)
 
 # graph = create_graph_from_string_2neg1(input_str)
 # graph = create_graph_from_string_21(input_str)
@@ -747,28 +840,6 @@ def make_sequences(originalu,u,upower,newstring,newgraph):
                     final_str = graph.edges[originalu,v]['label'] + ' + ' + final_str
                 graph.add_edge(originalu,v,label = final_str)
                 make_sequences(originalu,v,upower,nextstring,newgraph)
-        """
-        differential = newgraph.edges[u, v]['label'].split('*')
-        if len(differential) == 1 and 'U' in differential[0]:
-            return
-        else:
-            index = 0
-            if 'U' in differential[0]:
-                print(differential[0])
-                upower = upower + int(differential[0].split('^')[1])
-                index = 1
-            nextstring = newstring + differential[index]
-            if upower == 0:
-                toadd = ''
-            else:
-                toadd = f'U^{upower}*'
-            final_str = toadd + nextstring
-            print("adding edge ", u, " to ", v, " through ", final_str)
-            if graph.has_edge(originalu,v) and graph.edges[originalu,v]['label'] != final_str:
-                final_str = graph.edges[originalu,v]['label'] + ' + ' + final_str
-            graph.add_edge(originalu,v,label = final_str)
-            make_sequences(originalu,v,upower,nextstring,newgraph)
-            """
 
 
 print("\n\nNEW SECTION")
@@ -1083,9 +1154,15 @@ print(nodes_to_test)
 
 for node in nodes_to_test:
     for v in graph.__getitem__(node):
-        if v in nodes_to_test:
-            alex_grading_summand.append(graph.edges[node,v]['label'] + ' ' + node + ' ' + v)
+        label = graph.edges[node,v]['label']
+        toappend = label + ' ' + node + ' ' + v
+        edge_split = label.split('+')
+        for relation in edge_split:
+            further_split = relation.split('*')
+            if v in nodes_to_test and toappend not in alex_grading_summand and ('p1p2' in graph.edges[node,v]['label'] or (len(further_split) == 1 and 'U' in further_split[0])):
+                alex_grading_summand.append(toappend)
 
 print(alex_grading_summand)
+
 
 # def alex_summand_helper(potential_summand,v,arr):

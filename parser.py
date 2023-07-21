@@ -571,7 +571,7 @@ def create_graph_from_string_2neg1(input_string):
                     w = int(w)
                     if w == 0:
                         i = elements.count('\'p23\'')
-                        s_elements = [el[1:-1] for el in elements if el[1:-1].startswith('s')]
+                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
                         if len(s_elements) == 0:
                             label = f'U^{2*i+1}'
                         else:
@@ -889,15 +889,18 @@ arr = ['p2','p1p2p3','p2p3','p2p3','p2']
 direction = ['f','f','f','f','f']
 p2p1flag = 0
 
-arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
-direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+arr = ['p1p2']
+direction = ['f']
 
 arr = ['p1p2p3','p2p3','p2p3','p2p1','p2p3','p1p2p3']
 direction = ['f','f','f','f','b','b']
 p2p1flag = 0
 
-arr = ['p2','p1p2','p1p2p3']
-direction = ['f','f','f','f']
+arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
+direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+
+arr = ['p2','p3','p1p2']
+direction = ['f','b','f','f']
 
 def last_iter(potential_summand,arr,direction,index):
     search_list = []

@@ -246,7 +246,18 @@ def nomrelations(multi_list):
 def helperfunc(multi_list,index,potential,input,input_index,repeating):
     global input_str
     next = multi_list[index]
-    new_res = [j for j in next if input[input_index] in j]
+    prev_res = [j for j in next if input[input_index] in j]
+    new_res = []
+    # print("prevres:",prev_res)
+    for item in prev_res:
+        flag = 0
+        breakup = item.split('*')
+        # print(breakup)
+        for relation in breakup:
+            if relation + '*' == input[input_index]:
+                flag = 1
+        if flag == 1:
+            new_res.append(item)
     # print("res:",new_res)
     repeat_status = repeating[input_index]
     if len(new_res) > 0:
@@ -692,7 +703,7 @@ print(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
 """
-
+"""
 #(2,1) CABLE:
 summand_separator = []
 summand_relations = []
@@ -728,8 +739,8 @@ print(i1p_i1s)
 input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
-
 """
+
 #(2,-1) CABLE:
 summand_separator = []
 summand_relations = []
@@ -761,6 +772,7 @@ print("p2: b,c -> d,e")
 input_str = input_str + "p2: b,c -> d,e\n"
 callerfunc(multi_list,['p2*'],[0]) #d,e
 print("note that m(b) = U*c, m(d) = U*e for nomrelations\n")
+input_str = input_str + "note that m(b) = U*c, m(d) = U*e for nomrelations\n"
 print("IDEMPOTENT RHO_0: ")
 input_str = input_str + "IDEMPOTENT RHO_0: \n"
 print(i0p_i0s)
@@ -775,14 +787,14 @@ print(i1p_i1s)
 input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
-"""
+
 
 # input_string = input_str
 
 print(input_str)
 
-# graph = create_graph_from_string_2neg1(input_str)
-graph = create_graph_from_string_21(input_str)
+graph = create_graph_from_string_2neg1(input_str)
+# graph = create_graph_from_string_21(input_str)
 # graph = create_graph_from_string_0(input_str)
 
 # print("input_str:\n",input_str)
@@ -818,14 +830,14 @@ for u, v in graph.edges():
         # edge = graph.edges[u, v]['label']
         print(f"{new_edge}: {u}->{v}")
 
-def make_sequences(originalu,u,upower,newstring,newgraph):
+def make_sequences_v3(originalu,u,upower,newstring,newgraph):
     # print(u)
     for v in newgraph.__getitem__(u):
         if u == v:
             print(u,v)
             continue
         # print(newgraph.edges[u,v]['label'].split('*'))
-        relations = newgraph.edges[u,v]['label'].split('+')
+        relations = newgraph.edges[u,v]['label'].split(' + ')
         for relation in relations:
             differential = relation.split('*')
             if len(differential) == 1 and 'U' in differential[0]:
@@ -846,7 +858,7 @@ def make_sequences(originalu,u,upower,newstring,newgraph):
                 if graph.has_edge(originalu,v) and final_str not in graph.edges[originalu,v]['label']:
                     final_str = graph.edges[originalu,v]['label'] + ' + ' + final_str
                 graph.add_edge(originalu,v,label = final_str)
-                make_sequences(originalu,v,upower,nextstring,newgraph)
+                make_sequences_v3(originalu,v,upower,nextstring,newgraph)
 
 
 print("\n\nNEW SECTION")
@@ -854,7 +866,7 @@ print("\n\nNEW SECTION")
 for u in graph.nodes:
     # print(graph.neighbors(u))
     upower = 0
-    make_sequences(u,u,upower,'',graph.copy())
+    make_sequences_v3(u,u,upower,'',graph.copy())
 
 for u, v in graph.edges():
     edge = graph.edges[u, v]['label']
@@ -865,18 +877,27 @@ for u, v in graph.edges():
 #SET THIS FLAG TO 1 WHEN DOING IT
 
 
-arr = ['p2','p1p2p3','p2p3','p2p3','p2']
-direction = ['f','f','f','f','f']
-
 arr = ['p2','p1p2']
 direction = ['f','f']
 
-arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
-direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+arr = ['p1p2p3','p2p3','p2p3','p2p1', 'p2p3']
+direction = ['f','f','f','f','b']
+p2p1flag = 0
 
-arr = ['p3','p2p3','p2p3','p1','p2']
-direction = ['f','f','f','b','b']
-p2p1flag = 1
+
+arr = ['p2','p1p2p3','p2p3','p2p3','p2']
+direction = ['f','f','f','f','f']
+p2p1flag = 0
+
+arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
+direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+
+arr = ['p1p2p3','p2p3','p2p3','p2p1','p2p3','p1p2p3']
+direction = ['f','f','f','f','b','b']
+p2p1flag = 0
+
+arr = ['p2','p1p2','p1p2p3']
+direction = ['f','f','f','f']
 
 def last_iter(potential_summand,arr,direction,index):
     search_list = []
@@ -899,7 +920,7 @@ def last_iter(potential_summand,arr,direction,index):
         for neighbor in graph.edges(item):
             neighbor = neighbor[1]
             edge = graph.edges[item,neighbor]['label']
-            allrelations = edge.split('+')
+            allrelations = edge.split(' + ')
             # print(allrelations, item, neighbor)
             for relation in allrelations:
                 edge_split = relation.split('*')
@@ -910,7 +931,7 @@ def last_iter(potential_summand,arr,direction,index):
         for neighbor in graph.in_edges(item):
             neighbor = neighbor[0]
             edge = graph.edges[neighbor,item]['label']
-            allrelations = edge.split('+')
+            allrelations = edge.split(' + ')
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(neighbor) + ' ' + str(item) + ' ' + str(index)
@@ -953,7 +974,7 @@ def summand_helper(potential_summand,arr,direction,index):
                 v = v[0]
                 edge = graph.edges[v, u]['label']
             # print(edge)
-            allrelations = edge.split('+')
+            allrelations = edge.split(' + ')
             for relation in allrelations:
                 edge_split = relation.split('*')
                 if direction[index] == 'f':
@@ -969,7 +990,7 @@ def summand_helper(potential_summand,arr,direction,index):
         for neighbor in graph.edges(item):
             neighbor = neighbor[1]
             edge = graph.edges[item,neighbor]['label']
-            allrelations = edge.split('+')
+            allrelations = edge.split(' + ')
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(item) + ' ' + str(neighbor) + ' ' + str(index)
@@ -979,7 +1000,7 @@ def summand_helper(potential_summand,arr,direction,index):
         for neighbor in graph.in_edges(item):
             neighbor = neighbor[0]
             edge = graph.edges[neighbor,item]['label']
-            allrelations = edge.split('+')
+            allrelations = edge.split(' + ')
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(neighbor) + ' ' + str(item) + ' ' + str(index)
@@ -987,16 +1008,19 @@ def summand_helper(potential_summand,arr,direction,index):
                     potential_summand.append(toappend)
     return potential_summand
 
+import itertools
+
 def p2p1check(potential_summand,arr):
     
     start_index = arr.index('p2')
     end_index = arr.index('p1')
-
     left_index = []
     for item in potential_summand:
+        # print(item)
         slice = item.split(' ')
         index = slice[-1]
-        relations = slice[0].split('+')
+        print("left",slice)
+        relations = slice[0].split(' + ')
         for relation in relations:
             if int(index) == start_index and 'p1' not in relation:
                 left_index.append(slice[-3])
@@ -1004,7 +1028,9 @@ def p2p1check(potential_summand,arr):
 
     right_index = []
     for item in potential_summand:
+        # print(item)
         slice = item.split(' ')
+        print("right",slice)
         index = slice[-1]
         if int(index) == end_index:
             right_index.append(slice[-3])
@@ -1012,10 +1038,10 @@ def p2p1check(potential_summand,arr):
 
     left_index = list(set(left_index))
     right_index = list(set(right_index))
-    import itertools
+    print(left_index,right_index)
     for u,v in itertools.product(left_index,right_index):
         if graph.has_edge(u,v):
-            breakdown = graph.edges[u,v]['label'].split('+')
+            breakdown = graph.edges[u,v]['label'].split(' + ')
             for relation in breakdown:
                 tensor_break = relation.split('*')
                 if (len(tensor_break) == 1 and 'p2p1' == tensor_break[0]) or (len(tensor_break) == 2 and 'p2p1' == tensor_break[1]):
@@ -1038,7 +1064,7 @@ for u in graph.nodes:
         elif direction[index] == 'b':
             v = v[0]
             edge = graph.edges[v, u]['label']
-        allrelations = edge.split('+')
+        allrelations = edge.split(' + ')
         for relation in allrelations:
             edge_split = relation.split('*')
             if direction[index] == 'f':
@@ -1053,7 +1079,7 @@ for u in graph.nodes:
                     # print(neighbor)
                     neighbor = neighbor[1]
                     edge = graph.edges[u,neighbor]['label']
-                    allrelations = edge.split('+')
+                    allrelations = edge.split(' + ')
                     for relation in allrelations:
                         edge_split = relation.split('*')
                         if len(edge_split) == 1 and 'U' in edge_split[0]:
@@ -1062,7 +1088,7 @@ for u in graph.nodes:
                 for neighbor in graph.in_edges(u):
                     neighbor = neighbor[0]
                     edge = graph.edges[neighbor,u]['label']
-                    allrelations = edge.split('+')
+                    allrelations = edge.split(' + ')
                     for relation in allrelations:
                         edge_split = relation.split('*')
                         if len(edge_split) == 1 and 'U' in edge_split[0]:
@@ -1071,7 +1097,7 @@ for u in graph.nodes:
                     # print(neighbor)
                     neighbor = neighbor[1]
                     edge = graph.edges[v,neighbor]['label']
-                    allrelations = edge.split('+')
+                    allrelations = edge.split(' + ')
                     for relation in allrelations:
                         edge_split = relation.split('*')
                         if len(edge_split) == 1 and 'U' in edge_split[0]:
@@ -1080,7 +1106,7 @@ for u in graph.nodes:
                 for neighbor in graph.in_edges(v):
                     neighbor = neighbor[0]
                     edge = graph.edges[neighbor,v]['label']
-                    allrelations = edge.split('+')
+                    allrelations = edge.split(' + ')
                     for relation in allrelations:
                         edge_split = relation.split('*')
                         if len(edge_split) == 1 and 'U' in edge_split[0]:
@@ -1093,35 +1119,3 @@ for u in graph.nodes:
                     potential_summand = p2p1check(potential_summand,arr)
                 print("final potential:", potential_summand)
 
-
-print("GRADING MAKING")
-#recall that idems are:
-alex_grading_summand = []
-i0p_i0s.pop()
-useful_indices = []
-for gen in i0p_i0s:
-    useful_indices.append(gen[1:])
-
-
-nodes_to_test = []
-for node in graph.nodes():
-    if node[1:] in useful_indices:
-        nodes_to_test.append(node)
-
-print(i0p_i0s)
-print(nodes_to_test)
-
-for node in nodes_to_test:
-    for v in graph.__getitem__(node):
-        label = graph.edges[node,v]['label']
-        toappend = label + ' ' + node + ' ' + v
-        edge_split = label.split('+')
-        for relation in edge_split:
-            further_split = relation.split('*')
-            if v in nodes_to_test and toappend not in alex_grading_summand and ('p1p2' in graph.edges[node,v]['label'] or (len(further_split) == 1 and 'U' in further_split[0])):
-                alex_grading_summand.append(toappend)
-
-print(alex_grading_summand)
-
-
-# def alex_summand_helper(potential_summand,v,arr):

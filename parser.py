@@ -278,14 +278,19 @@ def helperfunc(multi_list,index,potential,input,input_index,repeating):
         # print("SENDING:",test_case,new_index,potential)
             # print(new_potential, " ", new_index)
             if input_index == len(input)-1:
-                idem = 0
+                idem1 = 0
                 if new_potential[0] in i0p_i0s or new_potential[0] in i0p_i1s:
-                    idem = 0
+                    idem1 = 0
                 if new_potential[0] in i1p_i0s or new_potential[0] in i1p_i1s:
-                    idem = 1
+                    idem1 = 1
+                idem2 = 0
+                if new_potential[-1] in i0p_i0s or new_potential[-1] in i0p_i1s:
+                    idem2 = 0
+                if new_potential[-1] in i1p_i0s or new_potential[-1] in i1p_i1s:
+                    idem2 = 1
                 update_summands(new_potential)
-                print(new_potential, ": ", idem)
-                input_str = input_str + str(new_potential) + " :  " + str(idem) + "\n"
+                print(new_potential, ": ", idem1, idem2)
+                input_str = input_str + str(new_potential) + " :  " + str(idem1) + ' ' + str(idem2) + "\n"
             else:
                 if repeat_status == 1:
                     helperfunc(multi_list,new_index,new_potential,input,input_index,repeating)

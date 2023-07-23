@@ -28,8 +28,40 @@ def find_algebra_element(decomp,index):
         if decomp == '[0->3]' or decomp == ' [0->3]':
             return 's123*'
 
-str1 = dd_printed
-
+str1 = """d(g1:((1, 3)),((1, 3))) = 0
+d(g2:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g30:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g17:((0, 2)),((0, 2))+[1->2]**[0->3]**g26:((0, 2)),((1, 3))+[1->2]**[0->3]**g19:((0, 2)),((1, 3))
+d(g3:((1, 3)),((0, 2))) = [1->3]**[(0, 2)]**g20:((1, 3)),((0, 2))+[1->2]**[0->1]**g19:((0, 2)),((1, 3))
+d(g4:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g13:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g11:((1, 3)),((0, 2))+[0->3]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[0->3]**g9:((1, 3)),((1, 3))
+d(g5:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g14:((0, 2)),((1, 3))
+d(g6:((1, 3)),((1, 3))) = 0
+d(g7:((1, 3)),((1, 3))) = [(1, 3)]**[1->3]**g16:((1, 3)),((1, 3))+[1->2]**[(1, 3)]**g23:((0, 2)),((1, 3))
+d(g8:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g21:((1, 3)),((1, 3))+[(1, 3)]**[0->1]**g9:((1, 3)),((1, 3))+[1->3]**[0->1]**g1:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g6:((1, 3)),((1, 3))
+d(g9:((1, 3)),((1, 3))) = 0
+d(g10:((1, 3)),((1, 3))) = 0
+d(g11:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g7:((1, 3)),((1, 3))+[1->2]**[(0, 2)]**g24:((0, 2)),((0, 2))+[1->2]**[0->3]**g18:((0, 2)),((1, 3))
+d(g12:((1, 3)),((1, 3))) = 0
+d(g13:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g17:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g7:((1, 3)),((1, 3))+[0->3]**[1->2]**g8:((1, 3)),((0, 2))
+d(g14:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g6:((1, 3)),((1, 3))
+d(g15:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g34:((1, 3)),((0, 2))
+d(g16:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g20:((1, 3)),((0, 2))+[1->2]**[(1, 3)]**g19:((0, 2)),((1, 3))
+d(g17:((0, 2)),((0, 2))) = [2->3]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[2->3]**g21:((1, 3)),((1, 3))+[2->3]**[0->3]**g5:((1, 3)),((1, 3))+[0->3]**[0->3]**g6:((1, 3)),((1, 3))
+d(g18:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g9:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g27:((1, 3)),((1, 3))+[0->1]**[1->3]**g6:((1, 3)),((1, 3))
+d(g19:((0, 2)),((1, 3))) = [0->3]**[(1, 3)]**g6:((1, 3)),((1, 3))+[2->3]**[1->3]**g6:((1, 3)),((1, 3))+[0->1]**[1->3]**g22:((1, 3)),((1, 3))+[2->3]**[1->3]**g10:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g10:((1, 3)),((1, 3))
+d(g20:((1, 3)),((0, 2))) = [1->3]**[2->3]**g6:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g6:((1, 3)),((1, 3))+[1->3]**[2->3]**g10:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g10:((1, 3)),((1, 3))+[1->3]**[0->1]**g1:((1, 3)),((1, 3))
+d(g21:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g32:((1, 3)),((0, 2))
+d(g22:((1, 3)),((1, 3))) = 0
+d(g23:((0, 2)),((1, 3))) = [(0, 2)]**[1->3]**g19:((0, 2)),((1, 3))+[0->2]**[(1, 3)]**g19:((0, 2)),((1, 3))
+d(g24:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g23:((0, 2)),((1, 3))+[0->1]**[2->3]**g16:((1, 3)),((1, 3))+[0->3]**[0->3]**g1:((1, 3)),((1, 3))+[2->3]**[0->3]**g27:((1, 3)),((1, 3))
+d(g25:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g1:((1, 3)),((1, 3))
+d(g26:((0, 2)),((1, 3))) = [0->1]**[(1, 3)]**g12:((1, 3)),((1, 3))+[2->3]**[(1, 3)]**g5:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g6:((1, 3)),((1, 3))+[0->1]**[1->3]**g22:((1, 3)),((1, 3))+[0->3]**[(1, 3)]**g10:((1, 3)),((1, 3))
+d(g27:((1, 3)),((1, 3))) = [1->2]**[(1, 3)]**g25:((0, 2)),((1, 3))
+d(g28:((0, 2)),((0, 2))) = [2->3]**[(0, 2)]**g3:((1, 3)),((0, 2))+[0->3]**[2->3]**g15:((1, 3)),((1, 3))+[0->3]**[0->3]**g22:((1, 3)),((1, 3))
+d(g29:((1, 3)),((0, 2))) = [(1, 3)]**[2->3]**g15:((1, 3)),((1, 3))+[(1, 3)]**[0->3]**g22:((1, 3)),((1, 3))+[(1, 3)]**[0->1]**g12:((1, 3)),((1, 3))+[1->3]**[0->1]**g10:((1, 3)),((1, 3))
+d(g30:((1, 3)),((1, 3))) = [(1, 3)]**[1->2]**g3:((1, 3)),((0, 2))+[1->3]**[(1, 3)]**g16:((1, 3)),((1, 3))
+d(g31:((0, 2)),((0, 2))) = [(0, 2)]**[2->3]**g33:((0, 2)),((1, 3))+[2->3]**[(0, 2)]**g2:((1, 3)),((0, 2))+[0->3]**[0->3]**g12:((1, 3)),((1, 3))
+d(g32:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g10:((1, 3)),((1, 3))
+d(g33:((0, 2)),((1, 3))) = [(0, 2)]**[1->2]**g28:((0, 2)),((0, 2))+[2->3]**[(1, 3)]**g30:((1, 3)),((1, 3))+[0->3]**[1->2]**g29:((1, 3)),((0, 2))
+d(g34:((1, 3)),((0, 2))) = [(1, 3)]**[0->1]**g22:((1, 3)),((1, 3))"""
 li = str1.splitlines()
 
 multi_list = []
@@ -79,7 +111,8 @@ for first in li:
             print(' + ', end = " ")
         decomp = holder[i].split('**')
         if(len(decomp)) < 3:
-            print("0", end = " ")
+            print('0', end = " ")
+            newlist.append('0')
             continue
         toprint_1 = find_algebra_element(decomp[0],1)
         toprint_2 = find_algebra_element(decomp[1],2)
@@ -102,27 +135,6 @@ print(i1p_i1s)
 
 # print(multi_list)
 input_str = ''
-
-def cleanup(summand_separator):
-    new_summand_separator = []
-    flag = [0] * len(summand_separator)
-    for i in range(len(summand_separator)):
-        if flag[i] == 1:
-            continue
-        summand = summand_separator[i]
-        new_summands = []
-        for gen in summand:
-            if gen not in new_summands:
-                new_summands.append(gen)
-        for j in range(i+1,len(summand_separator)):
-            if len(intersection(summand,summand_separator[j])) > 0:
-                for gen in summand_separator[j]:
-                    if gen not in new_summands:
-                        new_summands.append(gen)
-                flag[j] = 1
-        new_summand_separator.append(new_summands)
-    return new_summand_separator
-
 
 def update_summands(new_potential):
     flag = 0
@@ -147,11 +159,32 @@ def update_summands(new_potential):
         summand_separator.append(new_summand)
         summand_relations.append([new_potential])
 
+print("MULTILIST:", multi_list)
+
 def nomrelations(multi_list):
     global input_str
     # print(multi_list)
-    for first in multi_list:
+    for j in range(1,len(multi_list)):
+        first = multi_list[j]
+        # print(first)
         # first = multi_list[1]
+        if first[1] == '0':
+            new_potential = [first[0],'0',first[0]]
+            idem1 = 0
+            if new_potential[0] in i0p_i0s or new_potential[0] in i0p_i1s:
+                idem1 = 0
+            if new_potential[0] in i1p_i0s or new_potential[0] in i1p_i1s:
+                idem1 = 1
+            idem2 = 0
+            if new_potential[-1] in i0p_i0s or new_potential[-1] in i0p_i1s:
+                idem2 = 0
+            if new_potential[-1] in i1p_i0s or new_potential[-1] in i1p_i1s:
+                idem2 = 1
+            update_summands(new_potential)
+            print(new_potential, ": ", idem1, idem2)
+            input_str = input_str + str(new_potential) + " :  " + str(idem1) + ' ' + str(idem2) + "\n"
+            
+
         for i in range(1,len(first)):
             dummy = first[i]
             if (not any('p' in dummy for dummy in dummy)):
@@ -159,13 +192,19 @@ def nomrelations(multi_list):
                     toprint = first[i].split('*')
                     new_potential = [first[0],toprint[0],toprint[1]]
                     # print(first[0], " -> ", toprint[1], " : ", toprint[0])
-                    if first[0] in i0p_i0s or first[0] in i0p_i1s:
-                        idem = 0
-                    if first[0] in i1p_i0s or first[0] in i1p_i1s:
-                        idem = 1
+                    idem1 = 0
+                    if new_potential[0] in i0p_i0s or new_potential[0] in i0p_i1s:
+                        idem1 = 0
+                    if new_potential[0] in i1p_i0s or new_potential[0] in i1p_i1s:
+                        idem1 = 1
+                    idem2 = 0
+                    if new_potential[-1] in i0p_i0s or new_potential[-1] in i0p_i1s:
+                        idem2 = 0
+                    if new_potential[-1] in i1p_i0s or new_potential[-1] in i1p_i1s:
+                        idem2 = 1
                     update_summands(new_potential)
-                    print(new_potential, ": ", idem)
-                    input_str = input_str + str(new_potential) + " :  " + str(idem) + "\n"
+                    print(new_potential, ": ", idem1, idem2)
+                    input_str = input_str + str(new_potential) + " :  " + str(idem1) + ' ' + str(idem2) + "\n"
 
 
 def helperfunc(multi_list,index,potential,input,input_index,repeating):
@@ -203,14 +242,19 @@ def helperfunc(multi_list,index,potential,input,input_index,repeating):
         # print("SENDING:",test_case,new_index,potential)
             # print(new_potential, " ", new_index)
             if input_index == len(input)-1:
-                idem = 0
+                idem1 = 0
                 if new_potential[0] in i0p_i0s or new_potential[0] in i0p_i1s:
-                    idem = 0
+                    idem1 = 0
                 if new_potential[0] in i1p_i0s or new_potential[0] in i1p_i1s:
-                    idem = 1
+                    idem1 = 1
+                idem2 = 0
+                if new_potential[-1] in i0p_i0s or new_potential[-1] in i0p_i1s:
+                    idem2 = 0
+                if new_potential[-1] in i1p_i0s or new_potential[-1] in i1p_i1s:
+                    idem2 = 1
                 update_summands(new_potential)
-                print(new_potential, ": ", idem)
-                input_str = input_str + str(new_potential) + " :  " + str(idem) + "\n"
+                print(new_potential, ": ", idem1, idem2)
+                input_str = input_str + str(new_potential) + " :  " + str(idem1) + ' ' + str(idem2) + "\n"
             else:
                 if repeat_status == 1:
                     helperfunc(multi_list,new_index,new_potential,input,input_index,repeating)
@@ -684,15 +728,18 @@ callerfunc(multi_list,['p3*','p23*','p2*'],[0,1,0]) #U^(2i+2)*a
 print("p3, p23 rep, p2, p1: a -> U^{2i+1}*b")
 input_str = input_str + "p3, p23 rep, p2, p1: a -> U^{2i+1}*b\n"
 callerfunc(multi_list,['p3*','p23*','p2*','p1*'],[0,1,0,0]) #U^(2i+1)*b
+callerfunc(multi_list,['p3*','p23*','p2p1*'],[0,1,0])
 print("p3, p23 rep, p2, p12: a -> U^{2i+1}*d")
 input_str = input_str + "p3, p23 rep, p2, p12: a -> U^{2i+1}*d\n"
 callerfunc(multi_list,['p3*','p23*','p2*','p12*'],[0,1,0,0]) #U^(2i+1)*d
+callerfunc(multi_list,['p3*','p23*','p2*','p1*','p2*'],[0,1,0,0,0]) #U^(2i+1)*d
 print("p1: a -> c")
 input_str = input_str + "p1: a -> c\n"
 callerfunc(multi_list,['p1*'],[0]) #c,e
 print("p12: a -> e")
 input_str = input_str + "p12: a -> e\n"
 callerfunc(multi_list,['p12*'],[0]) #e
+callerfunc(multi_list,['p1*','p2*'],[0,0]) #e
 print("p2: b,c -> d,e")
 input_str = input_str + "p2: b,c -> d,e\n"
 callerfunc(multi_list,['p2*'],[0]) #d,e
@@ -757,7 +804,11 @@ for u, v in graph.edges():
 
 def make_sequences_v3(originalu,u,upower,newstring,newgraph):
     # print(u)
+    # if originalu == 'a4' or u == 'b16':
+        # print("node",originalu,u,newgraph.__getitem__(u))
     for v in newgraph.__getitem__(u):
+        # if v == 'b16' or v == 'b20':
+            # print('newnode',originalu,u,v)
         if u == v:
             print(u,v)
             continue
@@ -765,8 +816,10 @@ def make_sequences_v3(originalu,u,upower,newstring,newgraph):
         relations = newgraph.edges[u,v]['label'].split(' + ')
         for relation in relations:
             differential = relation.split('*')
-            if len(differential) == 1 and 'U' in differential[0]:
+            if len(differential) == 1 and 'U' in differential[0] and originalu != u:
                 return
+            elif len(differential) == 1 and 'U' in differential[0] and originalu == u:
+                continue
             else:
                 index = 0
                 if 'U' in differential[0]:
@@ -821,11 +874,14 @@ arr = ['p1p2p3','p2p3','p2p3','p2p1','p2p3','p1p2p3']
 direction = ['f','f','f','f','b','b']
 p2p1flag = 0
 
+arr = ['p2','p3','p2','p1','p2']
+direction = ['f','b','b','f','f']
+
 arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
 direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
 
-arr = ['p2','p3','p1p2']
-direction = ['f','b','f','f']
+arr = ['p2','p1p2']
+direction = ['f','f']
 
 def last_iter(potential_summand,arr,direction,index):
     search_list = []

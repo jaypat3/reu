@@ -461,27 +461,27 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 0 0' or line_elements[1] == ' 1 1':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, y, z = elements[0][1:][1:-1], elements[1][1:-1], elements[2][1:][1:-1]
-                    w = int(w)
+                    w = int(w[-1])
                     if w == 0:
                         graph.add_edge(f'a{x}', f'a{z}', label=f'{y}')
-                        graph.add_edge(f'd{x}', f'd{z}', label=f'{y}')
-                        graph.add_edge(f'e{x}', f'e{z}', label=f'{y}')
-                        graph.add_edge(f'd{x}', f'e{z}', label=f'U^1*{y}')
                         print('Edge added:', f'a{x}, a{z}, label={y}')
-                        print('Edge added:', f'd{x}, d{z}, label={y}')
-                        print('Edge added:', f'e{x}, e{z}, label={y}')
-                        print('Edge added:', f'd{x}, e{z}, label=U^1*{y}')
                     else:
                         graph.add_edge(f'b{x}', f'b{z}', label=f'{y}')
                         graph.add_edge(f'c{x}', f'c{z}', label=f'{y}')
+                        graph.add_edge(f'd{x}', f'd{z}', label=f'{y}')
+                        graph.add_edge(f'e{x}', f'e{z}', label=f'{y}')
                         graph.add_edge(f'b{x}', f'c{z}', label=f'U^1*{y}')
+                        graph.add_edge(f'd{x}', f'e{z}', label=f'U^1*{y}')
                         print('Edge added:', f'b{x}, b{z}, label={y}')
                         print('Edge added:', f'c{x}, c{z}, label={y}')
                         print('Edge added:', f'b{x}, c{z}, label=U^1*{y}')
+                        print('Edge added:', f'd{x}, d{z}, label={y}')
+                        print('Edge added:', f'e{x}, e{z}, label={y}')
+                        print('Edge added:', f'd{x}, e{z}, label=U^1*{y}')
 
     # Section 2: p3, p23 rep, p2: a -> U^{2i+2}*a
     section_2 = sections[1].split('\n')
@@ -489,20 +489,18 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 0 0':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, z = elements[0][1:][1:-1], elements[-1][1:][1:-1]
-                    w = int(w)
-                    if w == 0:
-                        i = elements.count('\'p23\'')
-                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
-                        if len(s_elements) == 0:
-                            label = f'U^{2*i+2}'
-                        else:
-                            s_concatenated = ''.join([el[1:-1] for el in s_elements])
-                            label = f'U^{2*i+2}*{s_concatenated}'
-                        graph.add_edge(f'a{x}', f'a{z}', label=label)
+                    i = elements.count('\'p23\'')
+                    s_elements = [el for el in elements if el[1:-1].startswith('s')]
+                    if len(s_elements) == 0:
+                        label = f'U^{2*i+2}'
+                    else:
+                        s_concatenated = ''.join([el[1:-1] for el in s_elements])
+                        label = f'U^{2*i+2}*{s_concatenated}'
+                    graph.add_edge(f'a{x}', f'a{z}', label=label)
                     print('Edge added:', f'a{x}, a{z}, label={label}')
 
     # Section 3: p3, p23 rep, p2, p1: a -> U^{2i+1}*b
@@ -511,20 +509,18 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 0 1':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, z = elements[0][1:][1:-1], elements[-1][1:][1:-1]
-                    w = int(w)
-                    if w == 0:
-                        i = elements.count('\'p23\'')
-                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
-                        if len(s_elements) == 0:
-                            label = f'U^{2*i+1}'
-                        else:
-                            s_concatenated = ''.join([el[1:-1] for el in s_elements])
-                            label = f'U^{2*i+1}*{s_concatenated}'
-                        graph.add_edge(f'a{x}', f'b{z}', label=label)
+                    i = elements.count('\'p23\'')
+                    s_elements = [el for el in elements if el[1:-1].startswith('s')]
+                    if len(s_elements) == 0:
+                        label = f'U^{2*i+1}'
+                    else:
+                        s_concatenated = ''.join([el[1:-1] for el in s_elements])
+                        label = f'U^{2*i+1}*{s_concatenated}'
+                    graph.add_edge(f'a{x}', f'b{z}', label=label)
                     print('Edge added:', f'a{x}, b{z}, label={label}')
 
     # Section 4: p3, p23 rep, p2, p12: a -> U^{2i+1}*d
@@ -533,20 +529,18 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 0 1':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, z = elements[0][1:][1:-1], elements[-1][1:][1:-1]
-                    w = int(w)
-                    if w == 0:
-                        i = elements.count('\'p23\'')
-                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
-                        if len(s_elements) == 0:
-                            label = f'U^{2*i+1}'
-                        else:
-                            s_concatenated = ''.join([el[1:-1] for el in s_elements])
-                            label = f'U^{2*i+1}*{s_concatenated}'
-                        graph.add_edge(f'a{x}', f'd{z}', label=label)
+                    i = elements.count('\'p23\'')
+                    s_elements = [el for el in elements if el[1:-1].startswith('s')]
+                    if len(s_elements) == 0:
+                        label = f'U^{2*i+1}'
+                    else:
+                        s_concatenated = ''.join([el[1:-1] for el in s_elements])
+                        label = f'U^{2*i+1}*{s_concatenated}'
+                    graph.add_edge(f'a{x}', f'd{z}', label=label)
                     print('Edge added:', f'a{x}, d{z}, label={label}')
                     
     # Section 5: p1: a -> c
@@ -555,15 +549,13 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 0 1':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, z = elements[0][1:][1:-1], elements[-1][1:][1:-1]
-                    w = int(w)
-                    if w == 0:
-                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
-                        label = ''.join([el[1:-1] for el in s_elements])
-                        graph.add_edge(f'a{x}', f'c{z}', label=label)
+                    s_elements = [el for el in elements if el[1:-1].startswith('s')]
+                    label = ''.join([el[1:-1] for el in s_elements])
+                    graph.add_edge(f'a{x}', f'c{z}', label=label)
                     print('Edge added:', f'a{x}, c{z}, label={label}')
                     
     # Section 6: p12: a -> e
@@ -572,15 +564,13 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 0 1':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, z = elements[0][1:][1:-1], elements[-1][1:][1:-1]
-                    w = int(w)
-                    if w == 0:
-                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
-                        label = ''.join([el[1:-1] for el in s_elements])
-                        graph.add_edge(f'a{x}', f'e{z}', label=label)
+                    s_elements = [el for el in elements if el[1:-1].startswith('s')]
+                    label = ''.join([el[1:-1] for el in s_elements])
+                    graph.add_edge(f'a{x}', f'e{z}', label=label)
                     print('Edge added:', f'a{x}, e{z}, label={label}')
               
     # Section 7: p2: b,c -> d,e
@@ -589,17 +579,14 @@ def create_graph_from_string_2neg1(input_string):
         if line and ':' in line:
             line_elements = line.split(' : ')
             if len(line_elements) == 2:
-                if line_elements[1] == ' 0' or line_elements[1] == ' 1':
+                if line_elements[1] == ' 1 1':
                     elements, w = line_elements
                     elements = elements[1:-1].split(', ')
                     x, z = elements[0][1:][1:-1], elements[-1][1:][1:-1]
-                    w = int(w)
-                    if w == 1:
-                        s_elements = [el for el in elements if el[1:-1].startswith('s')]
-                        label = ''.join([el[1:-1] for el in s_elements])
-                        graph.add_edge(f'b{x}', f'c{z}', label=label)
-                        graph.add_edge(f'd{x}', f'e{z}', label=label)
-
+                    s_elements = [el for el in elements if el[1:-1].startswith('s')]
+                    label = ''.join([el[1:-1] for el in s_elements])
+                    graph.add_edge(f'b{x}', f'c{z}', label=label)
+                    graph.add_edge(f'd{x}', f'e{z}', label=label)
                     print('Edge added:', f'b{x}, c{z}, label={label}')
                     print('Edge added:', f'd{x}, e{z}, label={label}')
                     

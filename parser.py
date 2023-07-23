@@ -629,7 +629,7 @@ def draw_graph(graph):
 
 # draw_graph(graph)
 
-"""
+
 #UNKNOT:
 summand_separator = []
 summand_relations = []
@@ -650,7 +650,7 @@ print(i1p_i0s)
 print(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
-"""
+
 """
 #(2,1) CABLE:
 summand_separator = []
@@ -688,7 +688,7 @@ input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
 """
-
+"""
 #(2,-1) CABLE:
 summand_separator = []
 summand_relations = []
@@ -738,14 +738,14 @@ print(i1p_i1s)
 input_str = input_str + str(i1p_i1s)
 # summand_separator = cleanup(summand_separator)
 # print("\nComponents: ",summand_separator)
-
+"""
 # input_string = input_str
 
 print(input_str)
 
-graph = create_graph_from_string_2neg1(input_str)
-#graph = create_graph_from_string_21(input_str)
-#graph = create_graph_from_string_0(input_str)
+# graph = create_graph_from_string_2neg1(input_str)
+# graph = create_graph_from_string_21(input_str)
+graph = create_graph_from_string_0(input_str)
 
 # print("input_str:\n",input_str)
 
@@ -841,25 +841,32 @@ direction = ['f','f','f','f','b']
 p2p1flag = 0
 
 
-arr = ['p2','p1p2p3','p2p3','p2p3','p2']
-direction = ['f','f','f','f','f']
-p2p1flag = 0
-
 arr = ['p1p2']
 direction = ['f']
+
+arr = ['p3','p2p3','p1','p2']
+direction = ['b','b','f','f']
+
+arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
+direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
 
 arr = ['p1p2p3','p2p3','p2p3','p2p1','p2p3','p1p2p3']
 direction = ['f','f','f','f','b','b']
 p2p1flag = 0
 
-arr = ['p2','p3','p2','p1','p2']
-direction = ['f','b','b','f','f']
+arr = ['p3','p2p3','p2p3','p1','p2']
+direction = ['f','f','f','b','b']
+flagger = 1
+start = 'p2'
+end = 'p1'
 
-arr = ['p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2', 'p1p2']
-direction = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+arr = ['p2','p1p2p3','p2p3','p2p3','p2']
+direction = ['f','f','f','f','f']
+flagger = 0
 
-arr = ['p2','p1p2']
-direction = ['f','f']
+arr = ['p2','p1p2','p1p2p3']
+direction = ['f','f','f']
+flagger = 0
 
 def last_iter(potential_summand,arr,direction,index):
     search_list = []
@@ -972,10 +979,10 @@ def summand_helper(potential_summand,arr,direction,index):
 
 import itertools
 
-def p2p1check(potential_summand,arr):
-    
-    start_index = arr.index('p2')
-    end_index = arr.index('p1')
+def concatcheck(potential_summand,arr,start,end):
+    concat_alg = start + end
+    start_index = arr.index(start)
+    end_index = arr.index(end)
     left_index = []
     for item in potential_summand:
         # print(item)
@@ -984,7 +991,7 @@ def p2p1check(potential_summand,arr):
         print("left",slice)
         relations = slice[0].split(' + ')
         for relation in relations:
-            if int(index) == start_index and 'p1' not in relation:
+            if int(index) == start_index and end not in relation:
                 left_index.append(slice[-3])
                 left_index.append(slice[-2])
 
@@ -1006,7 +1013,7 @@ def p2p1check(potential_summand,arr):
             breakdown = graph.edges[u,v]['label'].split(' + ')
             for relation in breakdown:
                 tensor_break = relation.split('*')
-                if (len(tensor_break) == 1 and 'p2p1' == tensor_break[0]) or (len(tensor_break) == 2 and 'p2p1' == tensor_break[1]):
+                if (len(tensor_break) == 1 and concat_alg == tensor_break[0]) or (len(tensor_break) == 2 and concat_alg == tensor_break[1]):
                     potential_summand.append(relation + ' ' + u + ' ' + v + ' ' + str(len(arr)))
     return potential_summand
 
@@ -1077,6 +1084,6 @@ for u in graph.nodes:
                     # print("potential_summand:", potential_summand)
                     potential_summand = summand_helper(potential_summand,arr,direction,i)
                 potential_summand = last_iter(potential_summand,arr,direction,len(arr)-1)
-                if p2p1flag == 1:
-                    potential_summand = p2p1check(potential_summand,arr)
+                if flagger == 1:
+                    potential_summand = concatcheck(potential_summand,arr,start,end)
                 print("final potential:", potential_summand)

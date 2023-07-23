@@ -909,7 +909,7 @@ def last_iter(potential_summand,arr,direction,index):
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(item) + ' ' + str(neighbor) + ' ' + str(index)
-                if len(edge_split) == 1 and 'U' in edge_split[0] and toappend not in potential_summand:
+                if len(edge_split) == 1 and ('U' in edge_split[0] or edge_split[0] == '') and toappend not in potential_summand:
                     potential_summand.append(toappend)
         
         for neighbor in graph.in_edges(item):
@@ -919,7 +919,7 @@ def last_iter(potential_summand,arr,direction,index):
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(neighbor) + ' ' + str(item) + ' ' + str(index)
-                if len(edge_split) == 1 and 'U' in edge_split[0] and toappend not in potential_summand:
+                if len(edge_split) == 1 and ('U' in edge_split[0] or edge_split[0] == '') and toappend not in potential_summand:
                     potential_summand.append(toappend)
     return potential_summand
 
@@ -966,7 +966,7 @@ def summand_helper(potential_summand,arr,direction,index):
                 elif direction[index] == 'b':
                     relation = relation + ' ' + str(v) + ' ' + str(u)
                 toappend = relation + ' ' + str(index)
-                if edge_split[-1] == arr[index] and toappend not in potential_summand:
+                if (edge_split[-1] == arr[index] or edge_split[-1] == '') and toappend not in potential_summand:
                     potential_summand.append(toappend)
                     final_list.append(v)
     
@@ -978,7 +978,7 @@ def summand_helper(potential_summand,arr,direction,index):
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(item) + ' ' + str(neighbor) + ' ' + str(index)
-                if len(edge_split) == 1 and 'U' in edge_split[0] and toappend not in potential_summand:
+                if len(edge_split) == 1 and ('U' in edge_split[0] or edge_split[0] == '') and toappend not in potential_summand:
                     potential_summand.append(toappend)
         
         for neighbor in graph.in_edges(item):
@@ -988,7 +988,7 @@ def summand_helper(potential_summand,arr,direction,index):
             for relation in allrelations:
                 edge_split = relation.split('*')
                 toappend = relation + ' ' + str(neighbor) + ' ' + str(item) + ' ' + str(index)
-                if len(edge_split) == 1 and 'U' in edge_split[0] and toappend not in potential_summand:
+                if len(edge_split) == 1 and ('U' in edge_split[0] or edge_split[0] == '') and toappend not in potential_summand:
                     potential_summand.append(toappend)
     return potential_summand
 

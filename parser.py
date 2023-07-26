@@ -784,7 +784,7 @@ for u, v in graph.edges():
 def make_sequences_v3(originalu,u,upower,newstring,newgraph):
     # print(u)
     for v in newgraph.__getitem__(u):
-        upower = 0
+        # upower = 0
         if u == v:
             # print(u,v)
             continue

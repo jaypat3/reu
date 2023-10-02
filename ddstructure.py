@@ -687,13 +687,25 @@ def DDStrFromDStr(dstr, genus1):
             continue
         gen_map[x] = SimpleDDGenerator(ddstr, x1_idem, x2_idem, x.name)
         ddstr.addGenerator(gen_map[x])
+#        print(x)
 
     cut_point = 4 * genus1
     for x in dstr.getGenerators():
+        xidem = x.idem
+        x1_idem = Idempotent(pmc1,
+                             [pairid for pairid in xidem if pairid < 2*genus1])
+        if len(x1_idem) != genus1:
+            continue
         for (a, y), coeff in list(x.delta().items()):
             if a.multiplicity[cut_point-1] == 0:
                 # The interval (cut_point-1, cut_point) is unoccupied
                 a1, a2 = unconnectSumStrandDiagram(a, genus1)
+#                print((x,y,a1,a2,coeff))
+#                try:
+#                    assert x in gen_map.keys()
+#                except:
+#                    print(x,gen_map)
+#                    assert False
                 ddstr.addDelta(gen_map[x], gen_map[y], a1, a2, coeff)
 
     return ddstr
